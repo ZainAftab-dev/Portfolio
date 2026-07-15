@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion, type Variants } from "framer-motion";
+import { m, type Variants } from "framer-motion";
 import { ArrowRight, Terminal } from "lucide-react";
 
 const ACCENT = "255, 90, 31"; // --accent (#FF5A1F) as r,g,b for rgba()
@@ -213,7 +213,7 @@ export function Hero() {
       <ParticleField />
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        <motion.div
+        <m.div
           custom={0}
           variants={fadeUpVariants}
           initial="hidden"
@@ -224,9 +224,9 @@ export function Hero() {
           <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
             Full-Stack Development · 3D / WebGL
           </span>
-        </motion.div>
+        </m.div>
 
-        <motion.h1
+        <m.h1
           custom={1}
           variants={fadeUpVariants}
           initial="hidden"
@@ -234,9 +234,9 @@ export function Hero() {
           className="mb-4 font-heading text-6xl font-bold tracking-tight text-foreground md:text-8xl"
         >
           Zain Aftab
-        </motion.h1>
+        </m.h1>
 
-        <motion.p
+        <m.p
           custom={2}
           variants={fadeUpVariants}
           initial="hidden"
@@ -244,9 +244,9 @@ export function Hero() {
           className="mb-2 font-heading text-xl font-medium text-accent md:text-2xl"
         >
           Full-Stack Developer &amp; Founder, Strategeon Softwares
-        </motion.p>
+        </m.p>
 
-        <motion.p
+        <m.p
           custom={3}
           variants={fadeUpVariants}
           initial="hidden"
@@ -256,9 +256,9 @@ export function Hero() {
           I design and ship production web apps end-to-end — interactive
           3D/WebGL hero sections, real-time dashboards, and full-stack
           platforms with Stripe payments, from database to deployment.
-        </motion.p>
+        </m.p>
 
-        <motion.div
+        <m.div
           custom={4}
           variants={fadeUpVariants}
           initial="hidden"
@@ -278,7 +278,7 @@ export function Hero() {
           >
             Download Résumé
           </a>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

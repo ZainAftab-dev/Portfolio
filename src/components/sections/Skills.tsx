@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { skills } from "@/data/skills";
 
 export function Skills() {
@@ -10,7 +10,7 @@ export function Skills() {
   return (
     <section className="border-y border-border bg-background py-16">
       <div className="mx-auto mb-8 max-w-5xl px-6">
-        <motion.h2
+        <m.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -18,7 +18,7 @@ export function Skills() {
           className="text-center font-heading text-2xl font-bold text-foreground md:text-3xl"
         >
           Built with tools that scale from first commit to production.
-        </motion.h2>
+        </m.h2>
       </div>
 
       <div

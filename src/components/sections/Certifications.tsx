@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { BadgeCheck, ArrowUpRight } from "lucide-react";
 import { certifications } from "@/data/certifications";
 
@@ -8,7 +8,7 @@ export function Certifications() {
   return (
     <section id="certifications" className="bg-background px-6 py-24 md:py-32">
       <div className="mx-auto max-w-5xl">
-        <motion.span
+        <m.span
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -16,9 +16,9 @@ export function Certifications() {
           className="mb-4 block font-mono text-xs uppercase tracking-wider text-accent"
         >
           Certifications
-        </motion.span>
+        </m.span>
 
-        <motion.h2
+        <m.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -26,11 +26,11 @@ export function Certifications() {
           className="mb-12 max-w-2xl font-heading text-3xl font-bold text-foreground md:text-4xl"
         >
           Continuous, verifiable learning.
-        </motion.h2>
+        </m.h2>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {certifications.map((cert, i) => (
-            <motion.a
+            <m.a
               key={cert.verifyUrl}
               href={cert.verifyUrl}
               target="_blank"
@@ -52,7 +52,7 @@ export function Certifications() {
                 Verify
                 <ArrowUpRight className="h-3.5 w-3.5" />
               </span>
-            </motion.a>
+            </m.a>
           ))}
         </div>
       </div>

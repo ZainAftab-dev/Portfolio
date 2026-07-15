@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowUpRight, ArrowUp, Mail, Phone } from "lucide-react";
 import { site } from "@/data/site";
 import { GithubIcon } from "@/components/icons/GithubIcon";
@@ -16,7 +16,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-background px-6 pt-24 pb-8">
       <div className="mx-auto max-w-5xl">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -38,7 +38,7 @@ export function Footer() {
             Get In Touch
             <ArrowUpRight className="h-5 w-5" />
           </a>
-        </motion.div>
+        </m.div>
 
         <div className="mb-16 grid grid-cols-1 gap-10 sm:grid-cols-3">
           <div>

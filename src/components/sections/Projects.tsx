@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { projects, type Project } from "@/data/projects";
 import { cn } from "@/lib/utils";
@@ -77,7 +77,7 @@ export function Projects() {
   return (
     <section id="projects" className="bg-background px-6 py-24 md:py-32">
       <div className="mx-auto max-w-5xl">
-        <motion.span
+        <m.span
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -85,9 +85,9 @@ export function Projects() {
           className="mb-4 block font-mono text-xs uppercase tracking-wider text-accent"
         >
           Projects
-        </motion.span>
+        </m.span>
 
-        <motion.h2
+        <m.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -95,9 +95,9 @@ export function Projects() {
           className="mb-12 max-w-2xl font-heading text-3xl font-bold text-foreground md:text-4xl"
         >
           Things I&apos;ve built and shipped.
-        </motion.h2>
+        </m.h2>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
@@ -107,7 +107,7 @@ export function Projects() {
           {projects.map((project) => (
             <ProjectTile key={project.name} project={project} />
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

@@ -11,13 +11,19 @@ const spaceGrotesk = Space_Grotesk({
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  // 600 added (font-semibold body text was missing its real weight and got
+  // browser-synthesized fake-bold instead). 700 dropped — every font-bold
+  // usage in the codebase is paired with font-heading (Space Grotesk), so
+  // DM Sans never actually needs a bold weight.
+  weight: ["400", "500", "600"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  // Only ever used for small uppercase mono labels at the default weight —
+  // trimmed from [400,500,600] since 500/600 are never actually requested.
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {

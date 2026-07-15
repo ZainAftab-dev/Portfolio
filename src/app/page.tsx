@@ -7,10 +7,11 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { Certifications } from "@/components/sections/Certifications";
 import { GithubStats } from "@/components/sections/GithubStats";
 import { Footer } from "@/components/sections/Footer";
+import { MotionProvider } from "@/components/MotionProvider";
 
 export default function Home() {
   return (
-    <>
+    <MotionProvider>
       <main className="flex-1">
         <Hero />
         <About />
@@ -22,6 +23,6 @@ export default function Home() {
         <GithubStats />
       </main>
       <Footer />
-    </>
+    </MotionProvider>
   );
 }

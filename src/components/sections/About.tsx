@@ -1,14 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Sparkles } from "lucide-react";
 
 export function About() {
   return (
     <section id="about" className="bg-background px-6 py-24 md:py-32">
       <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-[280px_1fr] md:gap-16">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -25,10 +25,10 @@ export function About() {
               priority
             />
           </div>
-        </motion.div>
+        </m.div>
 
         <div>
-          <motion.span
+          <m.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
@@ -36,9 +36,9 @@ export function About() {
             className="mb-4 block font-mono text-xs uppercase tracking-wider text-accent"
           >
             About
-          </motion.span>
+          </m.span>
 
-          <motion.h2
+          <m.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
@@ -46,9 +46,9 @@ export function About() {
             className="mb-6 font-heading text-3xl font-bold text-foreground md:text-4xl"
           >
             One developer who owns the entire stack.
-          </motion.h2>
+          </m.h2>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
@@ -72,9 +72,9 @@ export function About() {
               University Islamabad, which keeps the fundamentals sharp
               alongside the client work.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
@@ -89,7 +89,7 @@ export function About() {
               expanding into more 3D/WebGL and interactive-motion work, and
               taking on new full-stack projects.
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

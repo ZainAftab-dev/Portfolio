@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { site } from "@/data/site";
 
@@ -46,7 +46,7 @@ export function GithubStats() {
   return (
     <section id="github" className="bg-background px-6 py-24 md:py-32">
       <div className="mx-auto max-w-5xl">
-        <motion.span
+        <m.span
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -54,9 +54,9 @@ export function GithubStats() {
           className="mb-4 block font-mono text-xs uppercase tracking-wider text-accent"
         >
           GitHub Activity
-        </motion.span>
+        </m.span>
 
-        <motion.h2
+        <m.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -64,9 +64,9 @@ export function GithubStats() {
           className="mb-12 max-w-2xl font-heading text-3xl font-bold text-foreground md:text-4xl"
         >
           Still shipping, one commit at a time.
-        </motion.h2>
+        </m.h2>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -77,9 +77,9 @@ export function GithubStats() {
             src={activityUrl}
             alt={`${site.name}'s GitHub contribution activity graph`}
           />
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -90,7 +90,7 @@ export function GithubStats() {
             src={streakUrl}
             alt={`${site.name}'s GitHub contribution streak`}
           />
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

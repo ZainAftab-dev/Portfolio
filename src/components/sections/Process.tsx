@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { processSteps } from "@/data/process";
 import { TechVisual } from "@/components/decorative/TechVisual";
 
@@ -8,7 +8,7 @@ export function Process() {
   return (
     <section id="process" className="bg-background px-6 py-24 md:py-32">
       <div className="mx-auto max-w-4xl">
-        <motion.span
+        <m.span
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -16,9 +16,9 @@ export function Process() {
           className="mb-4 block font-mono text-xs uppercase tracking-wider text-accent"
         >
           Process
-        </motion.span>
+        </m.span>
 
-        <motion.h2
+        <m.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -26,11 +26,11 @@ export function Process() {
           className="mb-12 max-w-2xl font-heading text-3xl font-bold text-foreground md:text-4xl"
         >
           How a project actually gets built.
-        </motion.h2>
+        </m.h2>
 
         <div className="border-t border-border">
           {processSteps.map((step, i) => (
-            <motion.div
+            <m.div
               key={step.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -53,7 +53,7 @@ export function Process() {
                   {step.label}
                 </span>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Quote } from "lucide-react";
 import { testimonials, type Testimonial } from "@/data/testimonials";
 
@@ -78,7 +78,7 @@ export function Testimonials() {
   return (
     <section id="testimonials" className="bg-background px-6 py-24 md:py-32">
       <div className="mx-auto max-w-5xl">
-        <motion.span
+        <m.span
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -86,9 +86,9 @@ export function Testimonials() {
           className="mb-4 block font-mono text-xs uppercase tracking-wider text-accent"
         >
           Testimonials
-        </motion.span>
+        </m.span>
 
-        <motion.h2
+        <m.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -96,13 +96,13 @@ export function Testimonials() {
           className="mb-12 max-w-2xl font-heading text-3xl font-bold text-foreground md:text-4xl"
         >
           What people say after working with me.
-        </motion.h2>
+        </m.h2>
 
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
           {columns.map((colIndexes, colIndex) => (
             <div key={colIndex} className="flex flex-col gap-5">
               {colIndexes.map((idx, rowIndex) => (
-                <motion.div
+                <m.div
                   key={testimonials[idx].name}
                   ref={(el) => {
                     cardRefs.current[idx] = el;
@@ -117,7 +117,7 @@ export function Testimonials() {
                   }}
                 >
                   <TestimonialCard t={testimonials[idx]} />
-                </motion.div>
+                </m.div>
               ))}
             </div>
           ))}
