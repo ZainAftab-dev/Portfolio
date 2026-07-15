@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zain Aftab — Portfolio
+
+Personal portfolio site for [Zain Aftab](https://github.com/ZainAftab-dev) — full-stack developer and founder of [Strategeon Softwares](https://strategeonsoftwares.com/). Built with Next.js, TypeScript, and Tailwind CSS.
+
+**Live site:** _add your deployed URL here once live on Vercel_
+
+## Features
+
+- **Interactive particle-network hero** — custom Canvas animation with cursor-repulsion physics, built in TypeScript, with `prefers-reduced-motion` support and a mobile-safe fallback
+- **Bento-grid project showcase** with custom SVG decorative visuals (`TechVisual`) and a hover/focus reveal for each project's links and tech stack
+- **Rolling-list process section** with hover-activated thumbnail reveals
+- **Infinite auto-scrolling skills marquee**
+- **Dynamically-balanced testimonials masonry** — measures real rendered card heights client-side and bin-packs them into the shortest column, so the layout stays visually balanced at any viewport width
+- **Live GitHub contribution graph**
+- Fully responsive, dark-themed, accessible (WCAG-conscious contrast and motion handling)
+
+## Tech Stack
+
+- [Next.js 16](https://nextjs.org/) (App Router)
+- [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS v4](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/) for scroll/hover animation
+- [Lucide](https://lucide.dev/) icons
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies and run the dev server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view it.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  app/                 # Next.js App Router entry (layout, page, global styles)
+  components/
+    sections/          # Hero, About, Skills, Projects, Process, Testimonials, Certifications, GithubStats, Footer
+    decorative/         # TechVisual — reusable SVG decorative art for project/process tiles
+    icons/               # Custom inline icons (e.g. GithubIcon)
+  data/                # Content data (projects, skills, process steps, testimonials, certifications)
+  lib/                 # Shared utilities
+public/                # Static assets (headshot, résumé PDF)
+```
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+This project is designed to deploy on [Vercel](https://vercel.com/) with zero configuration:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push this repo to GitHub
+2. Import it in Vercel
+3. Deploy — no environment variables required
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Personal project — all rights reserved.

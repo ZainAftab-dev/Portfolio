@@ -1,0 +1,11 @@
+export const site = {
+  name: "Zain Aftab",
+  role: "Full-Stack Developer & Founder",
+  email: "zainaftab589@gmail.com",
+  phone: "+92 300 878 6709",
+  location: "Lahore, Pakistan",
+  linkedin: "https://www.linkedin.com/in/zain-aftab-563727295/",
+  github: "https://github.com/ZainAftab-dev",
+  githubUsername: "ZainAftab-dev",
+  companySite: "https://strategeonsoftwares.com/",
+};
