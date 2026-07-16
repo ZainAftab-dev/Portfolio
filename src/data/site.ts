@@ -8,4 +8,6 @@ export const site = {
   github: "https://github.com/ZainAftab-dev",
   githubUsername: "ZainAftab-dev",
   companySite: "https://strategeonsoftwares.com/",
+  upwork: "https://www.upwork.com/freelancers/~01fee0b1073442b82b?viewMode=1",
+  fiverr: "https://www.fiverr.com/zainaftab35?public_mode=true",
 };

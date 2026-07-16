@@ -1,3 +1,4 @@
+import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Skills } from "@/components/sections/Skills";
@@ -12,6 +13,7 @@ import { MotionProvider } from "@/components/MotionProvider";
 export default function Home() {
   return (
     <MotionProvider>
+      <Header />
       <main className="flex-1">
         <Hero />
         <About />
