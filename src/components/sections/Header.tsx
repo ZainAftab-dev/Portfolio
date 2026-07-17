@@ -1,12 +1,12 @@
-import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import { site } from "@/data/site";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 
 const PROFILE_LINKS = [
-  { label: "GitHub", href: site.github, Icon: GithubIcon },
-  { label: "LinkedIn", href: site.linkedin, Icon: ArrowUpRight },
-  { label: "Upwork", href: site.upwork, Icon: ArrowUpRight },
-  { label: "Fiverr", href: site.fiverr, Icon: ArrowUpRight },
+  { label: "GitHub", href: site.github, kind: "svg" as const, Icon: GithubIcon },
+  { label: "LinkedIn", href: site.linkedin, kind: "img" as const, src: "/logos/linkedin.png" },
+  { label: "Upwork", href: site.upwork, kind: "img" as const, src: "/logos/upwork.png" },
+  { label: "Fiverr", href: site.fiverr, kind: "img" as const, src: "/logos/fiverr.png" },
 ];
 
 export function Header() {
@@ -24,16 +24,26 @@ export function Header() {
           className="flex items-center gap-4 sm:gap-6"
           aria-label="Profile links"
         >
-          {PROFILE_LINKS.map(({ label, href, Icon }) => (
+          {PROFILE_LINKS.map((link) => (
             <a
-              key={label}
-              href={href}
+              key={link.label}
+              href={link.href}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-muted-foreground transition-colors hover:text-accent cursor-pointer"
             >
-              <Icon className="h-3.5 w-3.5" />
-              <span className="hidden sm:inline">{label}</span>
+              {link.kind === "svg" ? (
+                <link.Icon className="h-3.5 w-3.5" />
+              ) : (
+                <Image
+                  src={link.src}
+                  alt=""
+                  width={16}
+                  height={16}
+                  className="h-3.5 w-3.5 rounded-sm grayscale transition-all duration-200 hover:grayscale-0"
+                />
+              )}
+              <span className="hidden sm:inline">{link.label}</span>
             </a>
           ))}
         </nav>
