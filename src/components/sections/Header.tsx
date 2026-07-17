@@ -40,7 +40,7 @@ export function Header() {
                   alt=""
                   width={16}
                   height={16}
-                  className="h-3.5 w-3.5 rounded-sm grayscale transition-all duration-200 hover:grayscale-0"
+                  className="h-3.5 w-3.5 rounded-sm transition-all duration-200 sm:grayscale sm:hover:grayscale-0"
                 />
               )}
               <span className="hidden sm:inline">{link.label}</span>
