@@ -20,9 +20,9 @@ export default function Home() {
         <Skills />
         <Projects />
         <Process />
+        <GithubStats />
         <Testimonials />
         <Certifications />
-        <GithubStats />
       </main>
       <Footer />
     </MotionProvider>
