@@ -102,6 +102,55 @@ const LAYOUTS: NodeLayout[] = [
   },
 ];
 
+// Node clusters for very wide/short tiles (e.g. full-width bento cards).
+// The viewBox's vertical extent gets cropped hard by `slice` scaling on
+// these aspect ratios, so nodes stay inside a safe centered band instead
+// of the corners used by the standard LAYOUTS.
+const COMPACT_LAYOUTS: NodeLayout[] = [
+  {
+    primary: {
+      nodes: [
+        [40, 130],
+        [72, 168],
+        [98, 148],
+      ],
+      edges: [
+        [0, 1],
+        [1, 2],
+      ],
+    },
+    secondary: {
+      nodes: [
+        [330, 168],
+        [360, 140],
+      ],
+      edges: [[0, 1]],
+    },
+    corners: "tl-br",
+  },
+  {
+    primary: {
+      nodes: [
+        [330, 130],
+        [300, 168],
+        [355, 148],
+      ],
+      edges: [
+        [0, 1],
+        [1, 2],
+      ],
+    },
+    secondary: {
+      nodes: [
+        [55, 168],
+        [30, 140],
+      ],
+      edges: [[0, 1]],
+    },
+    corners: "tr-bl",
+  },
+];
+
 function ClusterSvg({ cluster, dim = false }: { cluster: Cluster; dim?: boolean }) {
   return (
     <>
@@ -136,13 +185,19 @@ export function TechVisual({
   variant = 0,
   className,
   iconClassName = "h-12 w-12 md:h-14 md:w-14",
+  compact = false,
 }: {
   icon: LucideIcon;
   variant?: number;
   className?: string;
   iconClassName?: string;
+  /** Use for very wide/short tiles (full-width bento cards) so the rings and node clusters stay inside the visible crop. */
+  compact?: boolean;
 }) {
-  const layout = LAYOUTS[variant % LAYOUTS.length];
+  const layout = compact
+    ? COMPACT_LAYOUTS[variant % COMPACT_LAYOUTS.length]
+    : LAYOUTS[variant % LAYOUTS.length];
+  const [ringInner, ringOuter] = compact ? [26, 38] : [58, 82];
 
   return (
     <div className={cn("relative h-full w-full overflow-hidden bg-card", className)}>
@@ -167,7 +222,7 @@ export function TechVisual({
         <circle
           cx="200"
           cy="150"
-          r="58"
+          r={ringInner}
           fill="none"
           stroke="#FF5A1F"
           strokeOpacity={0.25}
@@ -176,7 +231,7 @@ export function TechVisual({
         <circle
           cx="200"
           cy="150"
-          r="82"
+          r={ringOuter}
           fill="none"
           stroke="#FF5A1F"
           strokeOpacity={0.12}
@@ -186,38 +241,39 @@ export function TechVisual({
         <ClusterSvg cluster={layout.primary} />
         <ClusterSvg cluster={layout.secondary} dim />
 
-        {/* HUD-style corner brackets */}
-        {layout.corners === "tl-br" ? (
-          <>
-            <path
-              d="M14 30 V14 H30"
-              stroke="rgba(255,255,255,0.25)"
-              strokeWidth={1.5}
-              fill="none"
-            />
-            <path
-              d="M386 270 V286 H370"
-              stroke="rgba(255,255,255,0.25)"
-              strokeWidth={1.5}
-              fill="none"
-            />
-          </>
-        ) : (
-          <>
-            <path
-              d="M386 30 V14 H370"
-              stroke="rgba(255,255,255,0.25)"
-              strokeWidth={1.5}
-              fill="none"
-            />
-            <path
-              d="M14 270 V286 H30"
-              stroke="rgba(255,255,255,0.25)"
-              strokeWidth={1.5}
-              fill="none"
-            />
-          </>
-        )}
+        {/* HUD-style corner brackets — skipped in compact mode, they'd fall outside the visible crop */}
+        {!compact &&
+          (layout.corners === "tl-br" ? (
+            <>
+              <path
+                d="M14 30 V14 H30"
+                stroke="rgba(255,255,255,0.25)"
+                strokeWidth={1.5}
+                fill="none"
+              />
+              <path
+                d="M386 270 V286 H370"
+                stroke="rgba(255,255,255,0.25)"
+                strokeWidth={1.5}
+                fill="none"
+              />
+            </>
+          ) : (
+            <>
+              <path
+                d="M386 30 V14 H370"
+                stroke="rgba(255,255,255,0.25)"
+                strokeWidth={1.5}
+                fill="none"
+              />
+              <path
+                d="M14 270 V286 H30"
+                stroke="rgba(255,255,255,0.25)"
+                strokeWidth={1.5}
+                fill="none"
+              />
+            </>
+          ))}
       </svg>
 
       <div className="absolute inset-0 flex items-center justify-center">

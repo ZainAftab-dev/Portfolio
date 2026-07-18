@@ -5,6 +5,7 @@ import {
   Clapperboard,
   ShoppingBag,
   PenTool,
+  Wallet,
   type LucideIcon,
 } from "lucide-react";
 
@@ -15,7 +16,7 @@ export type Project = {
   github: string;
   demo: string;
   /** Bento tile size on the desktop grid. */
-  size: "large" | "wide" | "small";
+  size: "large" | "wide" | "small" | "full";
   /** Decorative tile visual: icon + node-layout variant (see TechVisual). */
   icon: LucideIcon;
   variant: number;
@@ -85,5 +86,17 @@ export const projects: Project[] = [
     size: "wide",
     icon: PenTool,
     variant: 1,
+  },
+  {
+    name: "Personal Finance Manager",
+    description:
+      "AI-powered finance dashboard — fraud detection, subscription tracking, budget planning, and a conversational AI assistant.",
+    tech: ["Python", "Streamlit", "scikit-learn", "Claude API"],
+    github: "https://github.com/ZainAftab-dev/Personal-Finance-Manager",
+    demo: "https://github.com/ZainAftab-dev/Personal-Finance-Manager",
+    // no live deploy — both buttons point to the repo
+    size: "full",
+    icon: Wallet,
+    variant: 2,
   },
 ];

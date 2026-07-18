@@ -11,6 +11,7 @@ const sizeClasses: Record<Project["size"], string> = {
   large: "md:col-span-2 md:row-span-2",
   wide: "md:col-span-2",
   small: "md:col-span-1",
+  full: "md:col-span-4",
 };
 
 function ProjectTile({ project }: { project: Project }) {
@@ -21,7 +22,12 @@ function ProjectTile({ project }: { project: Project }) {
         sizeClasses[project.size]
       )}
     >
-      <TechVisual icon={project.icon} variant={project.variant} className="absolute inset-0" />
+      <TechVisual
+        icon={project.icon}
+        variant={project.variant}
+        compact={project.size === "full"}
+        className="absolute inset-0"
+      />
 
       {/* Always-visible label so project identity isn't hover-only */}
       <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-background/90 to-transparent p-5 transition-opacity duration-300 group-hover:opacity-0 group-focus-within:opacity-0">
