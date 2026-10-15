@@ -1,8 +1,14 @@
 # Zain Aftab — Portfolio
 
+[![Live Site](https://img.shields.io/badge/Live-zainaftab--dev.vercel.app-000000?logo=vercel&logoColor=white)](https://zainaftab-dev.vercel.app/)
+![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
+
 Personal portfolio site for [Zain Aftab](https://github.com/ZainAftab-dev) — full-stack developer and founder of [Strategeon Softwares](https://strategeonsoftwares.com/). Built with Next.js, TypeScript, and Tailwind CSS.
 
-**Live site:** _add your deployed URL here once live on Vercel_
+**Live site:** https://zainaftab-dev.vercel.app
 
 ## Features
 
@@ -11,7 +17,7 @@ Personal portfolio site for [Zain Aftab](https://github.com/ZainAftab-dev) — f
 - **Rolling-list process section** with hover-activated thumbnail reveals
 - **Infinite auto-scrolling skills marquee**
 - **Dynamically-balanced testimonials masonry** — measures real rendered card heights client-side and bin-packs them into the shortest column, so the layout stays visually balanced at any viewport width
-- **Live GitHub contribution graph**
+- **Live GitHub stats:** contribution streak and activity graph pulled from the GitHub profile
 - Fully responsive, dark-themed, accessible (WCAG-conscious contrast and motion handling)
 
 ## Tech Stack
@@ -47,13 +53,11 @@ src/
 public/                # Static assets (headshot, résumé PDF)
 ```
 
+All site content (projects, skills, testimonials, certifications, contact links) lives in `src/data/`, so updating the portfolio never requires touching component code.
+
 ## Deployment
 
-This project is designed to deploy on [Vercel](https://vercel.com/) with zero configuration:
-
-1. Push this repo to GitHub
-2. Import it in Vercel
-3. Deploy — no environment variables required
+Deployed on [Vercel](https://vercel.com/) at **https://zainaftab-dev.vercel.app** with zero configuration (no environment variables needed).
 
 ## License
 
