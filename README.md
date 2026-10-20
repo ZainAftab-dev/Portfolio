@@ -6,31 +6,26 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
 
-Personal portfolio site for [Zain Aftab](https://github.com/ZainAftab-dev) — full-stack developer and founder of [Strategeon Softwares](https://strategeonsoftwares.com/). Built with Next.js, TypeScript, and Tailwind CSS.
+Personal portfolio site for [Zain Aftab](https://github.com/ZainAftab-dev) — full-stack developer and founder of [Strategeon Softwares](https://strategeonsoftwares.com/). Built with Next.js and TypeScript.
 
 **Live site:** https://zainaftab-dev.vercel.app
 
 ## Features
 
-- **Interactive particle-network hero** — custom Canvas animation with cursor-repulsion physics, built in TypeScript, with `prefers-reduced-motion` support and a mobile-safe fallback
-- **Bento-grid project showcase** with custom SVG decorative visuals (`TechVisual`) and a hover/focus reveal for each project's links and tech stack
-- **Rolling-list process section** with hover-activated thumbnail reveals
-- **Infinite auto-scrolling skills marquee**
-- **Dynamically-balanced testimonials masonry** — measures real rendered card heights client-side and bin-packs them into the shortest column, so the layout stays visually balanced at any viewport width
-- **Live GitHub stats:** contribution streak and activity graph pulled from the GitHub profile
-- Fully responsive, dark-themed, accessible (WCAG-conscious contrast and motion handling)
+- **Arctic Light design** — a light, indigo → sky theme with self-hosted Plus Jakarta Sans, JetBrains Mono, Instrument Serif and Cormorant Garamond
+- **Particle-network hero** — Canvas animation with an indigo → sky gradient and cursor repulsion; pauses off-screen and renders a static frame for `prefers-reduced-motion`
+- **Container-scroll About section** — a laptop screen that tilts flat as you scroll (port of the 21st.dev ContainerScroll)
+- **Laptop project showcase** of three selected projects, plus an **All work** page (`/work`) listing every public GitHub project with filters, screenshots, code and live links
+- Grouped skills marquee, rolling-list process, certificate-paper certifications, editorial testimonials, a chat-style FAQ and a flip business card
+- Fully responsive with no horizontal scroll, keyboard-accessible, reduced-motion aware
 
 ## Tech Stack
 
-- [Next.js 16](https://nextjs.org/) (App Router)
+- [Next.js 16](https://nextjs.org/) (App Router, static output)
 - [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS v4](https://tailwindcss.com/)
-- [Framer Motion](https://www.framer.com/motion/) for scroll/hover animation
-- [Lucide](https://lucide.dev/) icons
+- Hand-written CSS (`src/app/globals.css`) and [Fontsource](https://fontsource.org/) fonts — no UI or animation libraries
 
 ## Getting Started
-
-Install dependencies and run the dev server:
 
 ```bash
 npm install
@@ -43,17 +38,25 @@ Open [http://localhost:3000](http://localhost:3000) to view it.
 
 ```
 src/
-  app/                 # Next.js App Router entry (layout, page, global styles)
+  app/
+    page.tsx           # Homepage
+    work/page.tsx      # All work page
+    globals.css        # Arctic Light design system
   components/
-    sections/          # Hero, About, Skills, Projects, Process, Testimonials, Certifications, GithubStats, Footer
-    decorative/         # TechVisual — reusable SVG decorative art for project/process tiles
-    icons/               # Custom inline icons (e.g. GithubIcon)
-  data/                # Content data (projects, skills, process steps, testimonials, certifications)
-  lib/                 # Shared utilities
-public/                # Static assets (headshot, résumé PDF)
+    sections/          # Server-rendered homepage sections
+    client/            # Interactive pieces (particles, container scroll, FAQ chat, card flip, filters)
+    Icon.tsx           # Inline SVG icons
+  data/
+    projects.ts        # Every GitHub project; `featured` controls the homepage order
+    content.ts         # Skills, process, certificates, testimonials, FAQ
+    site.ts            # Contact links and nav
+public/
+  images/projects/     # Homepage laptop screenshots
+  images/work/         # All work screenshots
+  logos/               # Footer profile logos
 ```
 
-All site content (projects, skills, testimonials, certifications, contact links) lives in `src/data/`, so updating the portfolio never requires touching component code.
+All site content lives in `src/data/`, so updating the portfolio never requires touching component code. To add a project, add an entry to `projects.ts` (and a screenshot in `public/images/work/`); set `featured: 1–3` to put it on the homepage.
 
 ## Deployment
 

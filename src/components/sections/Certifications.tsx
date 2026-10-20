@@ -1,58 +1,45 @@
-"use client";
-
-import { m } from "framer-motion";
-import { BadgeCheck, ArrowUpRight } from "lucide-react";
-import { certifications } from "@/data/certifications";
+import type { CSSProperties } from "react";
+import { Icon } from "@/components/Icon";
+import { certificates } from "@/data/content";
 
 export function Certifications() {
   return (
-    <section id="certifications" className="bg-background px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-5xl">
-        <m.span
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-4 block font-mono text-xs uppercase tracking-wider text-accent"
-        >
-          Certifications
-        </m.span>
-
-        <m.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-          className="mb-12 max-w-2xl font-heading text-3xl font-bold text-foreground md:text-4xl"
-        >
-          Continuous, verifiable learning.
-        </m.h2>
-
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {certifications.map((cert, i) => (
-            <m.a
-              key={cert.verifyUrl}
-              href={cert.verifyUrl}
+    <section className="certs" id="certificates">
+      <div className="wrap">
+        <div className="certs-head">
+          <span className="label">Certifications</span>
+          <h2>
+            Papers on the <em>wall.</em>
+          </h2>
+          <p>
+            Industry certificates from AWS, NVIDIA, IBM, Google, Meta and the University of Michigan. Hover a
+            certificate to lift it, click to verify on Coursera.
+          </p>
+        </div>
+        <div className="papers">
+          {certificates.map((c) => (
+            <a
+              key={c.url}
+              className="paper"
+              href={c.url}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: (i % 4) * 0.08, ease: "easeOut" }}
-              className="group flex flex-col rounded-xl border border-border bg-card p-5 transition-colors hover:border-accent/50 cursor-pointer"
+              aria-label={`Verify ${c.title} by ${c.issuer} on Coursera`}
             >
-              <BadgeCheck className="mb-4 h-6 w-6 text-accent" />
-              <span className="mb-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                {cert.issuer}
-              </span>
-              <h3 className="mb-4 flex-1 font-heading text-sm font-semibold leading-snug text-foreground">
-                {cert.title}
-              </h3>
-              <span className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground transition-colors group-hover:text-accent">
-                Verify
-                <ArrowUpRight className="h-3.5 w-3.5" />
-              </span>
-            </m.a>
+              <div className="paper-in">
+                <span className="paper-k">CERTIFICATE OF COMPLETION</span>
+                <h3>{c.title}</h3>
+                <span className="paper-by">
+                  awarded to Zain Aftab by<b>{c.issuer}</b>
+                </span>
+                <span className="seal" style={{ "--c": c.color } as CSSProperties} aria-hidden="true">
+                  {c.seal}
+                </span>
+                <span className="paper-v">
+                  Verify on Coursera <Icon name="arrowUpRight" />
+                </span>
+              </div>
+            </a>
           ))}
         </div>
       </div>

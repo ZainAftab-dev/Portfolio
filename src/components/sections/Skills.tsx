@@ -1,45 +1,50 @@
-"use client";
+import type { CSSProperties } from "react";
+import { Icon } from "@/components/Icon";
+import { skillGroups } from "@/data/content";
 
-import { m } from "framer-motion";
-import { skills } from "@/data/skills";
+const COPIES = 4; // one readable set + three aria-hidden repeats for the seamless loop
 
 export function Skills() {
-  // Duplicated once so the -50% translateX loop is seamless.
-  const loop = [...skills, ...skills];
-
   return (
-    <section className="border-y border-border bg-background py-16">
-      <div className="mx-auto mb-8 max-w-5xl px-6">
-        <m.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-center font-heading text-2xl font-bold text-foreground md:text-3xl"
-        >
-          Built with tools that scale from first commit to production.
-        </m.h2>
-      </div>
-
-      <div
-        className="group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
-        role="list"
-        aria-label="Skills and technologies"
-      >
-        <div className="marquee-track flex w-max gap-4 group-hover:[animation-play-state:paused]">
-          {loop.map((skill, i) => (
-            <div
-              key={`${skill.name}-${i}`}
-              role="listitem"
-              aria-hidden={i >= skills.length}
-              className="flex shrink-0 items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5"
-            >
-              <skill.icon className="h-4 w-4 text-accent" />
-              <span className="whitespace-nowrap text-sm font-medium text-foreground">
-                {skill.name}
-              </span>
-            </div>
-          ))}
+    <section className="sk" id="skills">
+      <div className="wrap">
+        <div className="sh">
+          <span className="label">Skills</span>
+          <h2>
+            My <em>stack.</em>
+          </h2>
+          <p>The tools I use to design, build and ship production web apps — grouped by where they sit in a project.</p>
+        </div>
+        <div className="sk-list">
+          {skillGroups.map((g) => {
+            const c = { "--c": g.color } as CSSProperties;
+            return (
+              <div className="sk-row" key={g.label}>
+                <span className="sk-lab">
+                  <span className="sk-gi" style={c}>
+                    <Icon name={g.icon} />
+                  </span>
+                  {g.label}
+                </span>
+                <div className="sk-mrow">
+                  <div className="sk-track" style={{ "--sp": g.speed } as CSSProperties}>
+                    {Array.from({ length: COPIES }, (_, copy) =>
+                      g.items.map(([name, core]) => (
+                        <span
+                          key={`${copy}-${name}`}
+                          className={core ? "sk-chip core" : "sk-chip"}
+                          style={c}
+                          aria-hidden={copy > 0 ? true : undefined}
+                        >
+                          {name}
+                        </span>
+                      )),
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
